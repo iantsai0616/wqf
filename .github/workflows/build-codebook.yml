@@ -3,10 +3,14 @@ on:
   push:
     branches:
       - master
+permissions:
+  contents: write
 jobs:
   build-codebook:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out this repo
+        uses: actions/checkout@v2
       - name: Get codebook source
         uses: actions/checkout@v4
         with:
